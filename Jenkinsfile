@@ -16,14 +16,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compilando el proyecto con Maven...'
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
         
         stage('Test') {
             steps {
                 echo 'Ejecutando las pruebas con JUnit...'
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
@@ -35,7 +35,7 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Empaquetando el proyecto...'
-                sh 'mvn package -DskipTests'
+                bat 'mvn package -DskipTests'
             }
         }
     }
